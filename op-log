@@ -1,0 +1,6 @@
+# 新建react项目
+$ npm create vite@latest ton-dapp-1st --template react-ts
+
+$ npm install
+
+$ npm run dev
