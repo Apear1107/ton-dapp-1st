@@ -31,3 +31,6 @@ $ npm install buffer
 
 # 编译
 $ yarn build
+
+# git 工作流提交
+$ git commit -m "Workflow"
