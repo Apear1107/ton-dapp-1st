@@ -1,15 +1,21 @@
 import './App.css';
 import { TonConnectButton } from '@tonconnect/ui-react';
 import { useMainContract } from './hooks/useMainContract'
+import { useTonConnect } from './hooks/useTonConnect';
 
 function App() {
+  // 合约数据
   const {
     contract_address,
     counter_value,
     recent_sender,
     owner_address,
     contract_balance,
+    sendIncrement,
   } = useMainContract();
+  // 发送发连接状态
+  const { connected } = useTonConnect();
+
   return (
     <div>
       <div>
@@ -27,6 +33,19 @@ function App() {
           <b>Counter Value</b>
           <div>{counter_value ?? "Loading..."}</div>
         </div>
+
+        {connected && (
+          <a
+            onClick={() => {
+              sendIncrement();
+            }}
+          >
+            Increment by 5
+          </a>
+        )}
+
+        <br />
+
       </div>
     </div>
   );
