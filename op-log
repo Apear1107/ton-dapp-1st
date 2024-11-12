@@ -4,3 +4,27 @@ $ npm create vite@latest ton-dapp-1st --template react-ts
 $ npm install
 
 $ npm run dev
+
+$ yarn add @ton/ton @ton/core @ton/crypto 
+
+$ yarn add @orbs-network/ton-access
+
+$ yarn add @tonconnect/ui-react
+
+$ npm run dev 
+
+# 解决ton库对浏览器中不可用的nodejs Buffer的依赖
+# Uncaught ReferenceError: Buffer is not defined
+#     at node_modules/@ton/core/dist/boc/BitString.js (chunk-3YKN63JP.js?v=d5e2b4a4:557:37)
+#     at __require2 (chunk-PLDDJCW6.js?v=d5e2b4a4:17:50)
+#     at node_modules/@ton/core/dist/boc/BitBuilder.js (chunk-3YKN63JP.js?v=d5e2b4a4:569:23)
+#     at __require2 (chunk-PLDDJCW6.js?v=d5e2b4a4:17:50)
+#     at node_modules/@ton/core/dist/boc/Builder.js (chunk-3YKN63JP.js?v=d5e2b4a4:15044:24)
+#     at __require2 (chunk-PLDDJCW6.js?v=d5e2b4a4:17:50)
+#     at node_modules/@ton/core/dist/address/contractAddress.js (chunk-3YKN63JP.js?v=d5e2b4a4:15591:21)
+#     at __require2 (chunk-PLDDJCW6.js?v=d5e2b4a4:17:50)
+#     at node_modules/@ton/core/dist/index.js (chunk-3YKN63JP.js?v=d5e2b4a4:18486:29)
+#     at __require2 (chunk-PLDDJCW6.js?v=d5e2b4a4:17:50)
+$ yarn add vite-plugin-node-polyfills
+
+$ npm install buffer
