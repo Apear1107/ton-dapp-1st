@@ -57,5 +57,17 @@ export function useMainContract() {
       sendIncrement: async () => {
         return mainContract?.sendIncrement(sender, toNano("0.05"), 5);
       },
+      // deposit -- sender to contract
+      sendDeposit: async () => {
+        return mainContract?.sendDeposit(sender, toNano("1"));
+      },
+      // withdrawl -- conntract to sender
+      sendWithdrawalRequest: async () => {
+        return mainContract?.sendWithdrawalRequest(
+          sender,
+          toNano("0.05"),
+          toNano("0.1")
+        );
+      },
     };
 }
