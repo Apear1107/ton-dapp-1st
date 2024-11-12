@@ -1,53 +1,37 @@
-name: Deploy
-
+name: Build and Deploy
+# 监听 master 分支上的 push 事件
 on:
   push:
     branches:
       - master
-
 jobs:
-  build:
-    name: Build
+  build-and-deploy:
+    # 构建环境使用 ubuntu
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
+      # 官方action, 将代码拉取到虚拟机
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           persist-credentials: false
 
-      - name: Setup Node
+      # 安装node.js
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "20.17.0"
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+      # 下载依赖、打包项目
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn build
 
-      - name: Build project
-        run: npm run build
-
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+      # 部署
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          name: production-files
-          path: ./dist
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./dist
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          # 项目配置的打包目录名称
+          folder: dist
+          # 提交分支名
+          branch: static-pages
