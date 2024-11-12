@@ -28,3 +28,6 @@ $ npm run dev
 $ yarn add vite-plugin-node-polyfills
 
 $ npm install buffer
+
+# 编译
+$ yarn build
