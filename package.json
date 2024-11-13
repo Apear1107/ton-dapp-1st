@@ -7,10 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "test": "react-scripts test", 
-    "deploy": "gh-pages -d build" 
-    
+    "preview": "vite preview"
   },
   "dependencies": {
     "@orbs-network/ton-access": "^2.3.3",
