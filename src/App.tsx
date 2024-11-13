@@ -25,14 +25,14 @@ function App() {
       </div>
       <div>
         <div className='Card'>
-          <b>Our contract owner Address</b>
-          <div className='Hint'>{owner_address?.toString()}</div>
+          {/* <b>Our contract owner Address</b>
+          <div className='Hint'>{owner_address?.toString()}</div> */}
           <b>Our contract Address</b>
           <div className='Hint'>{contract_address}</div>
           <b>Our contract Balance</b>
           <div className='Hint'>{contract_balance}</div>
-          <b>Recent sender Address</b>
-          <div className='Hint'>{recent_sender?.toString()}</div>
+          {/* <b>Recent sender Address</b>
+          <div className='Hint'>{recent_sender?.toString()}</div> */}
         </div>
 
         <div className='Card'>
